@@ -314,7 +314,7 @@ const translations = {
     footerDescription: "This website was made for the Outbreak community and is not intended to recreate the official Strinova website. Its theme and design are adapted to align with the official Strinova website. All assets used are credited with their names and sources.",
     donateMe: "Donate Me",
     donateTitle: "Support This Project",
-    donateCopy: "If this project helps you, you can support the developer through Saweria.",
+    donateCopy: "If this project helps you, you can support the developer through Ko-fi.",
     close: "Close",
     email: "Email",
     password: "Password",
