@@ -1,11 +1,3 @@
--- =====================================================
--- STRINOVA OUTBREAK DECKS
--- Migration: tambah login + RLS berbasis kepemilikan
--- =====================================================
--- Jalankan ini di Supabase Dashboard > SQL Editor
--- =====================================================
-
-
 -- 1. Tambah kolom user_id ke tabel decks
 --    (menyimpan siapa pemilik deck ini)
 
