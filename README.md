@@ -9,7 +9,7 @@ Strinova Outbreak Decks is a community website for sharing, browsing, and discov
 - Filter decks by energy type and category
 - View deck details, including description, author, tags, and card previews
 - Copy deck codes directly
-- Sign in with Supabase email authentication to upload, edit, or delete your own decks
+- Sign in with Supabase email authentication to upload, edit, or delete your own decks.
 - Select multiple cards when creating or editing a deck
 - Search card names in the card picker
 - Responsive layout for desktop and mobile devices
