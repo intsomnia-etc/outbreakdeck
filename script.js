@@ -1,24 +1,5 @@
-/* =====================================================
-   STRINOVA OUTBREAK DECKS
-   SUPABASE V1
-===================================================== */
 
 
-/* =====================================================
-   SUPABASE CONFIG
-===================================================== */
-
-/*
-  GANTI 2 VALUE DI BAWAH INI
-
-  SUPABASE_URL:
-  Project URL milik kamu.
-
-  SUPABASE_KEY:
-  Publishable key / anon key milik kamu.
-
-  JANGAN masukkan service_role key di sini.
-*/
 
 const SUPABASE_URL =
   "https://midfyybrkgcnxewqbsbw.supabase.co";
@@ -27,9 +8,6 @@ const SUPABASE_KEY =
   "sb_publishable_G77_R1aK453uHwTAUiIcgg_twxaiScv";
 
 
-/* =====================================================
-   CREATE SUPABASE CLIENT
-===================================================== */
 
 const {
   createClient
@@ -42,9 +20,6 @@ const supabaseClient =
   );
 
 
-/* =====================================================
-   DOM
-===================================================== */
 
 const deckGrid =
   document.querySelector("#deckGrid");
@@ -133,9 +108,6 @@ const openDonateModalButton =
 const closeDonateModalButton =
   document.querySelector("#closeDonateModalButton");
 
-const languageSelect =
-  document.querySelector("#languageSelect");
-
 const deckDetailsModalOverlay =
   document.querySelector("#deckDetailsModalOverlay");
 
@@ -148,120 +120,15 @@ const closeDeckDetailsButton =
 let deckDetailsReturnFocus = null;
 
 
-/* =====================================================
-   LANGUAGE
-===================================================== */
 
 const translations = {
-  id: {
-    languageLabel: "Bahasa",
-    statusConnecting: "Menghubungkan…",
-    statusConnected: "Terhubung",
-    statusConnectionFailed: "Gagal terhubung",
-    authLoginSignup: "Masuk / Daftar",
-    logout: "Keluar",
-    heroTag: "Database Deck Komunitas Strinova Outbreak",
-    heroTitle: "Strinova Outbreak Decks",
-    heroCopy: "Temukan sinergi Superstring & Crystalline deck, salin kode deck langsung ke game, atau masuk untuk membagikan konfigurasi buatanmu ke seluruh komunitas.",
-    viewAllDecks: "Lihat Semua Deck",
-    uploadDeck: "+ Unggah Deck",
-    newsUpdateKicker: "PEMBARUAN WEBSITE",
-    newsUpdateTitle: "Update 2 Oktober 2026",
-    newsUpdateCards: "Menambahkan gambar kartu untuk menampilkan preview isi deck yang diunggah.",
-    newsUpdateDesign: "Mengubah tema dan desain website.",
-    searchFilter: "Cari & Filter Deck",
-    searchLabel: "Cari nama, deskripsi, kategori, author, atau kode deck",
-    searchPlaceholder: "Cari deck… misal Burning, DoT, Armor, Superstring…",
-    energyType: "Tipe Energi",
-    allTypes: "Semua Tipe",
-    category: "Kategori",
-    categoryHint: "Pilih satu atau lebih kategori.",
-    cardSelection: "Kartu Deck",
-    cardSelectionHint: "Pilih semua kartu yang digunakan dalam deck ini.",
-    cardSearch: "Cari nama kartu…",
-    selectedCards: "{count} kartu dipilih",
-    deckCards: "Kartu Deck",
-    deckDetails: "Detail Deck",
-    viewDeck: "Lihat Isi Deck",
-    deckTag: "Tag",
-    noDeckCards: "Belum ada kartu yang dipilih untuk deck ini.",
-    selectAtLeastOneCard: "Pilih minimal satu kartu untuk deck ini.",
-    allCategories: "Semua",
-    deckList: "Daftar Deck",
-    loading: "Memuat…",
-    deckNotFound: "Deck tidak ditemukan",
-    tryAnotherFilter: "Coba kata kunci atau filter lain.",
-    uploadDeckTitle: "Unggah Deck",
-    loginToUpload: "Masuk untuk mengunggah",
-    loginToUploadCopy: "Masuk atau buat akun di atas untuk mengunggah deck.",
-    deckName: "Nama Deck",
-    deckNamePlaceholder: "mis. Burning Corrosion",
-    authorName: "Nama Author",
-    authorPlaceholder: "Nama atau nickname…",
-    description: "Deskripsi",
-    descriptionPlaceholder: "Jelaskan sinergi taktis dan instruksi penggunaan deck…",
-    deckCode: "Kode Deck",
-    codePlaceholder: "Tempel kode deck hasil export di sini…",
-    codeHint: "Akan tersimpan di database bersama setelah dikirim.",
-    cancel: "Batal",
-    unofficialDatabase: "Database komunitas tidak resmi",
-    websiteCreator: "Kreator:",
-    websiteInspiredBy: "Inspirasi:",
-    artworkBy: "Aset:",
-    footerDescription: "Website ini dibuat untuk komunitas Outbreak dan tidak bermaksud membuat ulang website resmi Strinova. Tema dan desainnya disesuaikan dengan website resmi Strinova. Semua aset yang digunakan dicantumkan beserta nama dan sumbernya.",
-    donateMe: "Donasi Saya",
-    donateTitle: "Dukung Proyek Ini",
-    donateCopy: "Jika project ini membantu, kamu bisa mendukung pengembang melalui Saweria.",
-    close: "Tutup",
-    email: "Email",
-    password: "Kata Sandi",
-    passwordPlaceholder: "Minimal 6 karakter",
-    login: "Masuk",
-    createAccount: "Buat Akun",
-    tag: "TAG",
-    deckCodeLabel: "Kode Deck:",
-    authorLabel: "Author:",
-    copyCode: "Salin Kode",
-    copied: "Tersalin",
-    edit: "Edit",
-    delete: "Hapus",
-    deckCount: "deck",
-    deckCountPlural: "deck",
-    loadFailed: "Gagal memuat deck",
-    loadFailedCopy: "Periksa URL, key Supabase, dan kebijakan RLS.",
-    loginLoading: "Sedang masuk…",
-    signupLoading: "Membuat akun…",
-    loginFailed: "Gagal masuk.",
-    fillCredentials: "Isi email dan kata sandi terlebih dahulu.",
-    passwordMin: "Kata sandi minimal 6 karakter.",
-    accountCreated: "Akun berhasil dibuat. Kamu sudah masuk.",
-    confirmEmail: "Akun berhasil dibuat. Cek email untuk konfirmasi.",
-    signupFailed: "Gagal membuat akun.",
-    saveChanges: "Simpan Perubahan",
-    deleteConfirm: "Hapus deck \"{name}\"? Tindakan ini tidak bisa dibatalkan.",
-    deleting: "Menghapus…",
-    deleteFailed: "Gagal menghapus deck: {error}",
-    copyPrompt: "Salin kode deck ini:",
-    notLoggedIn: "Belum masuk",
-    loginFirst: "Silakan masuk terlebih dahulu.",
-    saving: "Menyimpan perubahan…",
-    uploading: "Mengunggah…",
-    saved: "Deck berhasil diperbarui",
-    uploaded: "Deck berhasil diunggah",
-    name: "Nama",
-    type: "Tipe",
-    saveFailed: "Gagal {action}",
-    updateAction: "menyimpan perubahan",
-    uploadAction: "mengunggah deck",
-    partOf: "Part Of",
-    unknownDatabaseError: "Terjadi kesalahan database yang tidak diketahui."
-  },
   en: {
-    languageLabel: "Language",
     statusConnecting: "Connecting…",
     statusConnected: "Connected",
     statusConnectionFailed: "Connection failed",
     authLoginSignup: "Log in / Sign up",
+    authSignupInstruction: "Create an account if you don't have one yet.",
+    authLoginInstruction: "Log in if you've already created an account.",
     logout: "Log out",
     heroTag: "Strinova Outbreak Community Deck Database",
     heroTitle: "Strinova Outbreak Decks",
@@ -270,8 +137,12 @@ const translations = {
     uploadDeck: "+ Upload Deck",
     newsUpdateKicker: "WEBSITE UPDATE",
     newsUpdateTitle: "October 2, 2026 Update",
+    newsUpdateTitle2: "October 17, 2026 Update",
     newsUpdateCards: "Added card images to preview the contents of uploaded decks.",
     newsUpdateDesign: "Refreshed the website theme and design.",
+    newsUpdateLogin: "Improved login verification.",
+    newsUpdateRemoved: "Removed Indonesian language.",
+    newsUpdateCategories: "Category filtering updated",
     searchFilter: "Search & Filter Decks",
     searchLabel: "Search by name, description, category, author, or deck code",
     searchPlaceholder: "Search decks… e.g. Burning, DoT, Armor, Superstring…",
@@ -279,6 +150,7 @@ const translations = {
     allTypes: "All Types",
     category: "Category",
     categoryHint: "Select one or more categories.",
+    selectAtLeastOneCategory: "Select at least one category for this deck.",
     cardSelection: "Deck Cards",
     cardSelectionHint: "Select all cards used in this deck.",
     cardSearch: "Search card names…",
@@ -337,8 +209,8 @@ const translations = {
     loginFailed: "Log in failed.",
     fillCredentials: "Enter your email and password first.",
     passwordMin: "Password must be at least 6 characters.",
-    accountCreated: "Account created. You are now logged in.",
-    confirmEmail: "Account created. Check your email to confirm it.",
+    accountCreated: "Account created successfully. Please log in.",
+    confirmEmail: "Account successfully created. Please check your email to confirm, if you don't see it, check your spam folder, then log in.",
     signupFailed: "Sign up failed.",
     saveChanges: "Save Changes",
     deleteConfirm: "Delete deck \"{name}\"? This action cannot be undone.",
@@ -361,11 +233,8 @@ const translations = {
   }
 };
 
-let currentLanguage =
-  localStorage.getItem("outbreakDeckLanguage") || "id";
-
 function t(key, replacements = {}) {
-  let text = translations[currentLanguage][key] || translations.id[key] || key;
+  let text = translations.en[key] || key;
 
   Object.entries(replacements).forEach(([name, value]) => {
     text = text.replace(`{${name}}`, value);
@@ -374,8 +243,55 @@ function t(key, replacements = {}) {
   return text;
 }
 
+const defaultCardsByType = {
+  Superstring: new Set([
+    "resurgence",
+    "defense first",
+    "assailant",
+    "relentless assault",
+    "berserker",
+    "thunderstrike",
+    "jump power",
+    "movement speed",
+    "max hp",
+    "max armor",
+    "bouncy shot",
+    "hit and run",
+    "sustained vitality",
+    "full armor",
+    "rapid reload"
+  ]),
+  Crystalline: new Set([
+    "forbidden claws",
+    "comeback",
+    "claws",
+    "unarmord claws",
+    "stattering leap",
+    "rusher",
+    "light of life",
+    "enhanced armor",
+    "leaper",
+    "sprinter",
+    "bloodrage",
+    "armor devourer"
+  ])
+};
+
+const cardDisplayNameOverrides = {
+  "unarmord claws": "Unarmored Claws",
+  "stattering leap": "Shattering Leap"
+};
+
 function formatCardName(name) {
+  if (cardDisplayNameOverrides[name]) {
+    return cardDisplayNameOverrides[name];
+  }
+
   return String(name).replace(/\b[a-z]/g, letter => letter.toUpperCase());
+}
+
+function isDefaultCard(type, name) {
+  return defaultCardsByType[type]?.has(name) || false;
 }
 
 function cardImagePath(type, name) {
@@ -383,8 +299,10 @@ function cardImagePath(type, name) {
 }
 
 function renderCardPicker(selectedNames = Array.from(selectedCardNames)) {
-  const cards = window.DECK_CARD_CATALOG[deckTypeInput.value] || [];
-  selectedCardNames = new Set(selectedNames);
+  const type = deckTypeInput.value;
+  const cards = window.DECK_CARD_CATALOG[type] || [];
+  const defaultCards = defaultCardsByType[type] || new Set();
+  selectedCardNames = new Set([...selectedNames, ...defaultCards]);
   const query = cardSearchInput.value.trim().toLowerCase();
   const visibleCards = cards.filter(name => name.includes(query));
 
@@ -399,6 +317,7 @@ function renderCardPicker(selectedNames = Array.from(selectedCardNames)) {
     checkbox.name = "card_names";
     checkbox.value = name;
     checkbox.checked = selectedCardNames.has(name);
+    checkbox.disabled = isDefaultCard(type, name);
 
     const image = document.createElement("img");
     image.src = cardImagePath(deckTypeInput.value, name);
@@ -408,8 +327,17 @@ function renderCardPicker(selectedNames = Array.from(selectedCardNames)) {
     const caption = document.createElement("span");
     caption.textContent = formatCardName(name);
 
+    if (isDefaultCard(type, name)) {
+      const defaultBadge = document.createElement("span");
+      defaultBadge.className = "default-card-badge";
+      defaultBadge.textContent = "DEFAULT";
+      defaultBadge.setAttribute("aria-label", "Default card; always included");
+      label.append(checkbox, image, caption, defaultBadge);
+    } else {
+      label.append(checkbox, image, caption);
+    }
+
     label.classList.toggle("is-selected", checkbox.checked);
-    label.append(checkbox, image, caption);
     checkbox.addEventListener("change", () => {
       if (checkbox.checked) {
         selectedCardNames.add(name);
@@ -431,10 +359,7 @@ function updateSelectedCardCount() {
   });
 }
 
-function applyLanguage() {
-  document.documentElement.lang = currentLanguage;
-  languageSelect.value = currentLanguage;
-
+function applyTranslations() {
   document.querySelectorAll("[data-i18n]").forEach(element => {
     element.textContent = t(element.dataset.i18n);
   });
@@ -447,19 +372,10 @@ function applyLanguage() {
     element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel));
   });
 
-  localStorage.setItem("outbreakDeckLanguage", currentLanguage);
   updateSelectedCardCount();
   renderDecks();
 }
 
-languageSelect.addEventListener("change", event => {
-  currentLanguage = event.target.value;
-  applyLanguage();
-});
-
-/* =====================================================
-   STATE
-===================================================== */
 
 let decks = [];
 
@@ -482,12 +398,9 @@ let editingId = null;
 */
 let currentUser = null;
 
-applyLanguage();
+applyTranslations();
 
 
-/* =====================================================
-   DATABASE CONNECTION TEST
-===================================================== */
 
 async function checkConnection() {
 
@@ -518,9 +431,6 @@ async function checkConnection() {
 }
 
 
-/* =====================================================
-   AUTH — INIT
-===================================================== */
 
 async function initAuth() {
 
@@ -560,9 +470,6 @@ async function initAuth() {
 }
 
 
-/* =====================================================
-   AUTH — UPDATE UI
-===================================================== */
 
 function updateAuthUI() {
 
@@ -627,9 +534,6 @@ function updateAuthUI() {
 }
 
 
-/* =====================================================
-   AUTH MODAL — OPEN / CLOSE
-===================================================== */
 
 function openAuthModal() {
 
@@ -708,6 +612,12 @@ function openDeckDetails(deck, trigger) {
       caption.textContent = formatCardName(name);
 
       item.append(image, caption);
+      if (isDefaultCard(deck.type, name)) {
+        const defaultBadge = document.createElement("span");
+        defaultBadge.className = "default-card-badge";
+        defaultBadge.textContent = "DEFAULT";
+        item.append(defaultBadge);
+      }
       cardsContainer.append(item);
     });
   }
@@ -806,9 +716,6 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   AUTH — RESULT MESSAGE
-===================================================== */
 
 function showAuthResult(
   message,
@@ -840,9 +747,6 @@ function showAuthResult(
 }
 
 
-/* =====================================================
-   AUTH — LOGIN
-===================================================== */
 
 authForm.addEventListener(
   "submit",
@@ -905,7 +809,7 @@ authForm.addEventListener(
       signupButton.disabled = false;
 
       loginButton.textContent =
-        "Masuk";
+        t("login");
 
     }
 
@@ -913,9 +817,6 @@ authForm.addEventListener(
 );
 
 
-/* =====================================================
-   AUTH — SIGN UP
-===================================================== */
 
 signupButton.addEventListener(
   "click",
@@ -969,7 +870,13 @@ signupButton.addEventListener(
 
         .signUp({
           email,
-          password
+          password,
+          options: {
+            emailRedirectTo: new URL(
+              "auth.html",
+              window.location.href
+            ).href
+          }
         });
 
 
@@ -1013,7 +920,7 @@ signupButton.addEventListener(
       signupButton.disabled = false;
 
       signupButton.textContent =
-        "Buat akun";
+        t("createAccount");
 
     }
 
@@ -1021,9 +928,6 @@ signupButton.addEventListener(
 );
 
 
-/* =====================================================
-   AUTH — LOGOUT
-===================================================== */
 
 logoutButton.addEventListener(
   "click",
@@ -1035,9 +939,6 @@ logoutButton.addEventListener(
 );
 
 
-/* =====================================================
-   LOAD DECKS
-===================================================== */
 
 async function loadDecks() {
 
@@ -1103,9 +1004,6 @@ async function loadDecks() {
 }
 
 
-/* =====================================================
-   FILTER DATA
-===================================================== */
 
 function getFilteredDecks() {
 
@@ -1188,9 +1086,6 @@ function getFilteredDecks() {
 }
 
 
-/* =====================================================
-   RENDER DECKS
-===================================================== */
 
 function renderDecks() {
 
@@ -1411,9 +1306,6 @@ function renderDecks() {
 }
 
 
-/* =====================================================
-   START EDIT DECK
-===================================================== */
 
 function startEditDeck(deck) {
 
@@ -1436,8 +1328,8 @@ function startEditDeck(deck) {
     .split(",")
     .map(category => category.trim());
 
-  Array.from(form.querySelector("#category").options).forEach(option => {
-    option.selected = selectedCategories.includes(option.value);
+  form.querySelectorAll('input[name="category"]').forEach(input => {
+    input.checked = selectedCategories.includes(input.value);
   });
 
   form.querySelector("#description").value =
@@ -1469,9 +1361,6 @@ function startEditDeck(deck) {
 }
 
 
-/* =====================================================
-   CANCEL EDIT
-===================================================== */
 
 function cancelEdit() {
 
@@ -1493,9 +1382,6 @@ function cancelEdit() {
 }
 
 
-/* =====================================================
-   DELETE DECK
-===================================================== */
 
 async function deleteDeck(
   deck,
@@ -1582,9 +1468,6 @@ async function deleteDeck(
 }
 
 
-/* =====================================================
-   COPY DECK
-===================================================== */
 
 async function copyDeck(
   code,
@@ -1631,9 +1514,6 @@ async function copyDeck(
 }
 
 
-/* =====================================================
-   FILTER BUTTON HELPER
-===================================================== */
 
 function setActiveFilter(
   group,
@@ -1660,9 +1540,6 @@ function setActiveFilter(
 }
 
 
-/* =====================================================
-   TYPE FILTER
-===================================================== */
 
 document
   .querySelector(
@@ -1699,9 +1576,6 @@ document
   );
 
 
-/* =====================================================
-   CATEGORY FILTER
-===================================================== */
 
 document
   .querySelector(
@@ -1738,9 +1612,6 @@ document
   );
 
 
-/* =====================================================
-   SEARCH
-===================================================== */
 
 searchInput.addEventListener(
   "input",
@@ -1760,9 +1631,6 @@ cardSearchInput.addEventListener("input", () => {
 renderCardPicker();
 
 
-/* =====================================================
-   UPLOAD DECK
-===================================================== */
 
 form.addEventListener(
   "submit",
@@ -1801,9 +1669,19 @@ form.addEventListener(
     const formData =
       new FormData(form);
 
+    const selectedCategories =
+      formData.getAll("category");
+
 
     if (!selectedCardNames.size) {
       uploadResult.textContent = t("selectAtLeastOneCard");
+      uploadResult.classList.add("is-error");
+      uploadResult.classList.remove("hidden");
+      return;
+    }
+
+    if (!selectedCategories.length) {
+      uploadResult.textContent = t("selectAtLeastOneCategory");
       uploadResult.classList.add("is-error");
       uploadResult.classList.remove("hidden");
       return;
@@ -1830,9 +1708,7 @@ form.addEventListener(
         Array.from(selectedCardNames),
 
       category:
-        formData
-          .getAll("category")
-          .join(", "),
+        selectedCategories.join(", "),
 
       description:
         formData
@@ -1980,7 +1856,7 @@ form.addEventListener(
 
         <br />
 
-        Kategori
+        ${t("category")}
         ${escapeHTML(data.category)}
 
       `;
@@ -2078,9 +1954,6 @@ form.addEventListener(
 );
 
 
-/* =====================================================
-   CANCEL EDIT BUTTON
-===================================================== */
 
 cancelEditButton.addEventListener(
   "click",
@@ -2094,9 +1967,6 @@ form.addEventListener("reset", () => {
 });
 
 
-/* =====================================================
-   HTML ESCAPE
-===================================================== */
 
 function escapeHTML(
   value
@@ -2132,9 +2002,6 @@ function escapeHTML(
 }
 
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
 
 async function initialize() {
 

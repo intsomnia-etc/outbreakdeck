@@ -33,9 +33,6 @@
 }
 
 
-/* =========================
-   RESET
-========================= */
 
 * {
   box-sizing: border-box;
@@ -94,15 +91,6 @@ select {
   color: inherit;
 }
 
-select[multiple] {
-  min-height: 118px;
-  padding: 8px;
-}
-
-select[multiple] option {
-  padding: 4px 6px;
-}
-
 button {
   cursor: pointer;
 }
@@ -118,9 +106,6 @@ button {
 }
 
 
-/* =========================
-   TOP BAR
-========================= */
 
 .topbar {
   max-width: 1200px;
@@ -194,21 +179,6 @@ button {
   flex-wrap: wrap;
 }
 
-.language-switcher select {
-  min-width: 112px;
-  padding: 7px 9px;
-  border: 1px solid var(--border-bright);
-  border-radius: 0;
-  background: var(--surface);
-  color: var(--text);
-  font-size: 11px;
-  cursor: pointer;
-}
-
-.language-switcher select:hover {
-  border-color: var(--accent);
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -243,9 +213,6 @@ button {
 }
 
 
-/* =========================
-   AUTH MODAL
-========================= */
 
 .modal-overlay {
   position: fixed;
@@ -271,6 +238,24 @@ button {
   padding: 24px;
   position: relative;
   box-shadow: 0 0 40px rgba(0, 0, 0, .5);
+}
+
+.auth-modal-logo {
+  display: block;
+  width: min(100%, 220px);
+  height: auto;
+  margin: 0 auto 18px;
+}
+
+.auth-instructions {
+  margin: -6px 0 18px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.auth-instructions p {
+  margin: 0;
 }
 
 .modal-header {
@@ -316,9 +301,6 @@ button {
 }
 
 
-/* =========================
-   MAIN
-========================= */
 
 .shell {
   width: min(1200px, calc(100% - 32px));
@@ -328,9 +310,6 @@ button {
 }
 
 
-/* =========================
-   HERO
-========================= */
 
 .hero {
   padding: 48px 0 36px;
@@ -413,9 +392,6 @@ button {
 }
 
 
-/* =========================
-   BUTTON
-========================= */
 
 .btn {
   display: inline-flex;
@@ -457,9 +433,6 @@ button {
 }
 
 
-/* =========================
-   PANEL
-========================= */
 
 .panel {
   margin-top: 24px;
@@ -544,9 +517,6 @@ button {
 }
 
 
-/* =========================
-   FORM
-========================= */
 
 .field-label,
 .filter-label {
@@ -611,9 +581,6 @@ select {
 }
 
 
-/* =========================
-   FILTER
-========================= */
 
 .filters {
   display: flex;
@@ -657,9 +624,6 @@ select {
 }
 
 
-/* =========================
-   SECTION
-========================= */
 
 .section-heading {
   display: flex;
@@ -688,9 +652,6 @@ select {
 }
 
 
-/* =========================
-   DECK GRID
-========================= */
 
 .deck-grid {
   display: grid;
@@ -969,6 +930,12 @@ select {
   overflow-wrap: anywhere;
 }
 
+.deck-details-card .default-card-badge {
+  display: flex;
+  width: fit-content;
+  margin: 6px auto 0;
+}
+
 .deck-details-empty {
   grid-column: 1 / -1;
   margin: 0;
@@ -979,9 +946,6 @@ select {
 }
 
 
-/* =========================
-   OWNER ACTIONS
-========================= */
 
 .card-actions {
   display: flex;
@@ -1023,9 +987,6 @@ select {
 }
 
 
-/* =========================
-   EMPTY
-========================= */
 
 .empty-state {
   text-align: left;
@@ -1052,9 +1013,6 @@ select {
 }
 
 
-/* =========================
-   FORM RESULT
-========================= */
 
 .upload-result {
   margin-top: 18px;
@@ -1073,9 +1031,6 @@ select {
 }
 
 
-/* =========================
-   FOOTER
-========================= */
 
 footer {
   display: flex;
@@ -1172,9 +1127,6 @@ footer a:hover {
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
 
 .form-grid {
   display: grid;
@@ -1182,8 +1134,54 @@ footer a:hover {
   gap: 16px;
 }
 
+.energy-category-row {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(180px, 1fr) minmax(0, 2fr);
+  gap: 16px;
+}
+
 .field {
   margin-bottom: 16px;
+}
+
+.category-field {
+  min-width: 0;
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+}
+
+.category-field legend {
+  margin-bottom: 8px;
+}
+
+.category-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-option {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.category-option:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-tint);
+  color: var(--accent);
+}
+
+.category-option input {
+  margin: 0;
+  accent-color: var(--accent);
 }
 
 .field-hint {
@@ -1258,6 +1256,24 @@ footer a:hover {
   overflow-wrap: anywhere;
 }
 
+.default-card-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 5px;
+  border: 1px solid #d09b37;
+  border-radius: 3px;
+  color: #9a6810;
+  background: #fff5d9;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .05em;
+}
+
+.card-option .default-card-badge {
+  width: auto;
+}
+
 .deck-card-list {
   margin: 0 0 12px;
 }
@@ -1318,6 +1334,7 @@ footer a:hover {
   .topbar { padding: 14px 16px; flex-wrap: wrap; }
   .shell { width: min(100% - 24px, 1200px); }
   .deck-grid, .form-grid { grid-template-columns: 1fr; }
+  .energy-category-row { grid-template-columns: 1fr; gap: 0; }
   .section-heading, footer { align-items: flex-start; flex-direction: column; }
   .hero-visual img { max-width: 220px; }
   .deck-details-modal { max-height: 92vh; padding: 16px; }
@@ -1325,9 +1342,6 @@ footer a:hover {
 }
 
 
-/* =========================
-   STRINOVA GAME THEME
-========================= */
 
 :root {
   --bg: #f2f2f1;
@@ -1463,13 +1477,6 @@ select {
   margin-left: 20px;
 }
 
-.language-switcher select {
-  min-width: 96px;
-  border-color: rgba(255, 255, 255, .18);
-  background-color: #202329;
-  color: #f2f3f5;
-}
-
 .topbar-auth .btn {
   border-color: var(--accent);
   background: var(--accent);
@@ -1510,7 +1517,7 @@ select {
   position: absolute;
   z-index: -2;
   inset: 0;
-  background-image: url("yvette%20summer.png");
+  background-image: url("assets/images/yvette%20summer.png");
   background-position: center center;
   background-size: cover;
   transform: scale(1.01);
@@ -2150,12 +2157,6 @@ footer {
   .donate-icon img {
     width: 30px;
     height: 30px;
-  }
-
-  .language-switcher select {
-    min-width: 82px;
-    padding: 7px 24px 7px 7px;
-    font-size: 10px;
   }
 
   .topbar-auth .btn {
