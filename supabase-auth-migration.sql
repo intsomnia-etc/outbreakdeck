@@ -69,19 +69,3 @@ for delete
 to authenticated
 using (auth.uid() = user_id);
 
-
--- =====================================================
--- CATATAN
--- =====================================================
--- Deck LAMA (yang dibuat sebelum migration ini) akan
--- punya user_id = NULL, sehingga tidak akan bisa
--- di-edit/dihapus oleh siapa pun lewat aplikasi
--- (kecuali kamu, lewat SQL Editor / service_role key).
---
--- Kalau mau assign deck lama ke akun kamu sendiri,
--- jalankan (ganti UUID dengan id akun kamu, bisa
--- dilihat di Authentication > Users):
---
--- update decks set user_id = 'UUID-AKUN-KAMU'
--- where user_id is null;
--- =====================================================

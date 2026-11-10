@@ -123,6 +123,47 @@
          NEWS / UPDATE
     ========================== -->
 
+    <details class="news-accordion">
+      <summary class="news-accordion-toggle">NEWS</summary>
+      <div class="news-accordion-content">
+
+    <section class="news-update" aria-labelledby="newsUpdateTitle">
+
+      <div class="news-update-gallery">
+
+        <div class="news-update-image news-update-image-main">
+          <img src="assets/news/update25oct.png" alt="Strinova Outbreak Decks — New Update, 25 October 2026" />
+        </div>
+
+        <div class="news-update-image">
+          <img src="assets/news/searccategory.png" alt="Search category update" />
+        </div>
+
+        <div class="news-update-image">
+          <img src="assets/news/agentsmaps.png" alt="Agents and maps update" />
+        </div>
+
+      </div>
+
+      <div class="news-update-content">
+
+        <div class="news-update-heading">
+          <span class="news-update-kicker" data-i18n="newsUpdateKicker">WEBSITE UPDATE</span>
+          <h2 id="newsUpdateTitle" data-i18n="newsUpdateTitle3">October 25, 2026 Update</h2>
+        </div>
+
+        <ul class="news-update-list">
+          <li data-i18n="newsUpdateAgents">Added Agents and Maps</li>
+          <li data-i18n="newsUpdateCategory">Category updated</li>
+          <li data-i18n="newsUpdateFiltering">Update filtering options</li>
+          <li data-i18n="newsAddCategory">Added new category</li>
+        </ul>
+
+      </div>
+
+    </section>
+
+
     <section class="news-update" aria-labelledby="newsUpdateTitle">
 
       <div class="news-update-gallery">
@@ -153,6 +194,9 @@
           <li data-i18n="newsUpdateCategories">Category filtering updated</li>
           <li data-i18n="newsUpdateLogin">Login verification improved</li>
           <li data-i18n="newsUpdateRemoved">Removed Indonesian language</li>
+          <li data-i18n="newsUpdateCardRarity">Updated card rarity colors</li>
+          <li data-i18n="newsUpdateCardOrder">Reordered card display</li>
+          <li data-i18n="newsUpdateRarity">Updated card rarity filtering</li>
         </ul>
 
       </div>
@@ -194,6 +238,10 @@
     </section>
 
 
+      </div>
+    </details>
+
+
     <!-- =========================
          SEARCH / FILTER
     ========================== -->
@@ -223,6 +271,9 @@
 
       </div>
 
+      <div class="deck-filters-layout">
+
+        <div class="deck-filters-main">
 
       <!-- TYPE -->
 
@@ -250,6 +301,29 @@
 
       </div>
 
+      <!-- UPLOADER -->
+
+      <div class="filter-block">
+
+        <div class="field-label" data-i18n="filterByUploader">
+          Uploaded By
+        </div>
+
+        <div class="filters" id="uploadFilters" role="group" aria-label="Filter decks by uploader"></div>
+
+      </div>
+
+      <!-- MAP -->
+
+      <div class="filter-block">
+
+        <div class="field-label" data-i18n="filterByMap">
+          Map
+        </div>
+
+        <div class="filters" id="mapFilters" role="group" aria-label="Filter decks by map"></div>
+
+      </div>
 
       <!-- CATEGORY -->
 
@@ -284,6 +358,56 @@
           <button class="filter" data-category="Speed">
             Speed
           </button>
+
+          <button class="filter" data-category="HP">
+            HP
+          </button>
+
+          <button class="filter" data-category="Gun Damage">
+            Gun Damage
+          </button>
+
+          <button class="filter" data-category="Sunburst Damage">
+            Sunburst Damage
+          </button>
+
+          <button class="filter" data-category="Skill Damage">
+            Skill Damage
+          </button>
+
+          <button class="filter" data-category="Ultimate Damage">
+            Ultimate Damage
+          </button>
+
+          <button class="filter" data-category="Melee Damage">
+            Melee Damage
+          </button>
+
+          <button class="filter" data-category="Regen Armor">
+            Regen Armor
+          </button>
+
+          <button class="filter" data-category="Regen HP">
+            Regen HP
+          </button>
+
+        </div>
+
+      </div>
+
+        </div>
+
+        <div class="deck-filters-character">
+
+          <div class="filter-block">
+
+            <div class="field-label" data-i18n="filterByCharacter">
+              Character
+            </div>
+
+            <div id="characterFilters"></div>
+
+          </div>
 
         </div>
 
@@ -349,45 +473,61 @@
 
           <!-- NAME -->
 
-          <div class="field description-field">
+          <div class="deck-name-code-group">
 
-            <label for="deckName" class="field-label">
-              <span data-i18n="deckName">Deck Name</span>
-            </label>
+            <div class="field">
 
-            <input
-              id="deckName"
-              name="name"
-              maxlength="60"
-              required
-              placeholder="e.g. Burning Corrosion"
-              data-i18n-placeholder="deckNamePlaceholder"
-            />
+              <label for="deckName" class="field-label">
+                <span data-i18n="deckName">Deck Name</span>
+              </label>
 
-          </div>
+              <input
+                id="deckName"
+                name="name"
+                maxlength="60"
+                required
+                placeholder="e.g. Burning Corrosion"
+                data-i18n-placeholder="deckNamePlaceholder"
+              />
 
+            </div>
 
-          <!-- AUTHOR -->
+            <!-- AUTHOR -->
 
-          <div class="field">
+            <div class="field">
 
-            <label for="author" class="field-label">
-              <span data-i18n="authorName">Author Name</span>
-            </label>
+              <label for="author" class="field-label">
+                <span data-i18n="authorName">Author Name</span>
+              </label>
 
-            <input
-              id="author"
-              name="author"
-              maxlength="30"
-              required
-              placeholder="Name or nickname…"
-              data-i18n-placeholder="authorPlaceholder"
-            />
+              <input
+                id="author"
+                name="author"
+                maxlength="30"
+                required
+                placeholder="Name or nickname…"
+                data-i18n-placeholder="authorPlaceholder"
+              />
 
-          </div>
+            </div>
 
+            <div class="field">
 
-          <div class="energy-category-row">
+              <label for="deckCode" class="field-label">
+                <span data-i18n="deckCode">Deck Code</span>
+              </label>
+
+              <input
+                id="deckCode"
+                name="code"
+                class="code-input"
+                type="text"
+                required
+                maxlength="2000"
+                placeholder="Paste the exported deck code here…"
+                data-i18n-placeholder="codePlaceholder"
+              />
+            </div>
 
             <!-- TYPE -->
 
@@ -407,9 +547,11 @@
 
             </div>
 
+          </div>
+
+          <div class="energy-category-row">
 
             <!-- CATEGORY -->
-
             <fieldset class="field category-field" aria-describedby="categoryHint">
 
               <legend class="field-label" data-i18n="category">
@@ -441,6 +583,46 @@
                   <input type="checkbox" name="category" value="Speed" />
                   <span>Speed</span>
                 </label>
+
+                <label class="category-option">
+                  <input type="checkbox" name="category" value="HP" />
+                  <span>HP</span>
+                </label>
+
+                <label class="category-option">
+                  <input type="checkbox" name="category" value="Gun Damage" />
+                  <span>Gun Damage</span>
+                </label>
+
+                <label class="category-option">
+                  <input type="checkbox" name="category" value="Sunburst Damage" />
+                  <span>Sunburst Damage</span>
+                </label>
+
+                <label class="category-option">
+                  <input type="checkbox" name="category" value="Skill Damage" />
+                  <span>Skill Damage</span>
+                </label>
+
+                <label class="category-option">
+                  <input type="checkbox" name="category" value="Ultimate Damage" />
+                  <span>Ultimate Damage</span>
+                </label>
+
+                <label class="category-option">
+                  <input type="checkbox" name="category" value="Melee Damage" />
+                  <span>Melee Damage</span>
+                </label>
+
+                <label class="category-option">
+                  <input type="checkbox" name="category" value="Regen Armor" />
+                  <span>Regen Armor</span>
+                </label>
+
+                <label class="category-option">
+                  <input type="checkbox" name="category" value="Regen HP" />
+                  <span>Regen HP</span>
+                </label>
               </div>
 
               <div class="field-hint" id="categoryHint" data-i18n="categoryHint">
@@ -467,11 +649,46 @@
             <label class="sr-only" for="cardSearch" data-i18n="cardSearch">Search card names…</label>
             <input id="cardSearch" type="search" autocomplete="off" data-i18n-placeholder="cardSearch" placeholder="Search card names…" />
 
+            <div class="card-rarity-filters" id="cardRarityFilters" role="group" aria-label="Filter cards by rarity">
+              <button class="card-rarity-filter active" type="button" data-card-rarity="all" aria-pressed="true" data-i18n="allRarities">All rarities</button>
+              <button class="card-rarity-filter" type="button" data-card-rarity="epic" aria-pressed="false" data-i18n="epic">Epic</button>
+              <button class="card-rarity-filter" type="button" data-card-rarity="rare" aria-pressed="false" data-i18n="rare">Rare</button>
+              <button class="card-rarity-filter" type="button" data-card-rarity="refined" aria-pressed="false" data-i18n="refined">Refined</button>
+            </div>
+
             <div class="card-picker" id="cardPicker" role="group" aria-labelledby="cardSelectionLabel"></div>
 
             <div class="field-hint" id="selectedCardCount" aria-live="polite"></div>
 
           </div>
+
+          <fieldset class="field map-selection-field" aria-describedby="mapSelectionHint">
+
+            <legend class="field-label" data-i18n="mapSelection">
+              Maps
+            </legend>
+
+            <div class="map-picker" id="mapPicker" role="group" aria-label="Select maps"></div>
+
+            <div class="field-hint" id="mapSelectionHint" data-i18n="mapSelectionHint">
+              Choose a map that suits your deck. You can select multiple maps if your deck is versatile.
+            </div>
+
+          </fieldset>
+
+          <fieldset class="field agent-selection-field" aria-describedby="agentSelectionHint">
+
+            <legend class="field-label" data-i18n="agentSelection">
+              Characters
+            </legend>
+
+            <div class="agent-picker" id="agentPicker" role="group" aria-label="Select characters"></div>
+
+            <div class="field-hint" id="agentSelectionHint" data-i18n="agentSelectionHint">
+              Select one or more characters for this deck.
+            </div>
+
+          </fieldset>
 
         </div>
 
@@ -493,30 +710,9 @@
             data-i18n-placeholder="descriptionPlaceholder"
           ></textarea>
 
-        </div>
-
-
-        <!-- CODE -->
-
-        <div class="field">
-
-          <label for="deckCode" class="field-label">
-            <span data-i18n="deckCode">Deck Code</span>
-          </label>
-
-          <textarea
-            id="deckCode"
-            name="code"
-            class="code-input"
-            required
-            maxlength="2000"
-            placeholder="Paste the exported deck code here…"
-            data-i18n-placeholder="codePlaceholder"
-          ></textarea>
-
           <div class="field-hint">
-            <span data-i18n="codeHint">It will be saved to the shared database after submission.</span>
-          </div>
+                <span data-i18n="codeHint">It will be saved to the shared database after submission.</span>
+              </div>
 
         </div>
 
@@ -622,6 +818,16 @@
         <section class="deck-details-card-section">
           <h4 data-i18n="deckCards">Deck Cards</h4>
           <div class="deck-details-cards" id="deckDetailsCards"></div>
+        </section>
+
+        <section class="deck-details-map-section">
+          <h4 data-i18n="deckMaps">Maps</h4>
+          <div class="deck-details-maps" id="deckDetailsMaps"></div>
+        </section>
+
+        <section class="deck-details-agent-section">
+          <h4 data-i18n="deckAgents">Characters</h4>
+          <div class="deck-details-agents" id="deckDetailsAgents"></div>
         </section>
 
       </div>
@@ -787,6 +993,11 @@
 
       <div class="meta-line">
         [<span data-i18n="tag">TAG</span>: <span class="category"></span>]
+      </div>
+
+      <div class="deck-tags">
+        <div class="deck-map-tags" aria-label="Maps"></div>
+        <div class="deck-character-tags" aria-label="Characters"></div>
       </div>
 
 

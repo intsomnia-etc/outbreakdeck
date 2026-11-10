@@ -1,4 +1,4 @@
--- Allow the Speed category in comma-separated deck categories.
+
 alter table public.decks
   drop constraint if exists decks_category_check;
 
